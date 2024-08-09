@@ -13,10 +13,7 @@ const app = express();
 // Middlewares
 app.use(cors(
     {
-        origin: [
-            'http://localhost:5173', // Development origin
-            'https://booking-com-mern.onrender.com' // Production origin
-        ],
+        origin: process.env.FRONTEND_URL as string || 'http://localhost:5173',
         credentials: true
     }
 ));
@@ -33,7 +30,7 @@ app.get('/', (req, res) => {
 app.use('/auth', userRouter);
 
 // Connect to database & start server
-const PORT = process.env.PORT || 5000;
+const PORT =  5000;
 
 mongoose.connect(process.env.MONGODB_URL as string)
     .then(() => {
