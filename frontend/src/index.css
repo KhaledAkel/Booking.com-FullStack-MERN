@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --color-primary: #2590F2;
+  --color-secondary: #FFFFFF;
+  --color-tertiary: #FE712A;
+  --color-quaternary: #292A3C;
+}
+
+/* Custom CSS */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--color-primary);
+}
+
+.text__color-primary {
+  color: var(--color-primary);
+}
+
+.bg__color-primary {
+  background-color: var(--color-primary);
+}
+
+.bg__color-secondary {
+  background-color: var(--color-secondary);
+}
+
+.section-container {
+  width: 80%;
+  margin: 0 auto;
+}
+.shadow-left {
+  box-shadow: -5px 0 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+.animation__slideAirplane {
+  animation: slideAirplane 7s linear forwards;
+}
+.animation__slideAirplaneDelayed {
+  animation: slideAirplane 8s linear forwards;
+  animation-delay: 15s;
+
+  
+}
+
+@keyframes slideAirplane {
+  from {
+    transform: translateY(800%);
+  }
+  to {
+    transform: translateY(-1600%);
+  }
+  
+}
+/* Media Queries */
+@media (max-width: 768px) {
+  .section-container {
+    width: 90%;
+  }
+}
