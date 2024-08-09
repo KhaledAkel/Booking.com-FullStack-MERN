@@ -13,7 +13,7 @@ const app = express();
 // Middlewares
 app.use(cors(
     {
-        origin: 'https://booking-com-mern.onrender.com/' || 'http://localhost:5173',
+        origin: 'https://booking-com-mern.onrender.com',
         credentials: true
     }
 ));
