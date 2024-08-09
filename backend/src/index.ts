@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import "dotenv/config";
 
 import { userRouter } from './routes';
+import path from 'path';
 
 
 const app = express();
@@ -16,6 +17,8 @@ app.use(cors(
         credentials: true
     }
 ));
+app.use(express.static(path.join(__dirname, '../../frontend/dist')));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());

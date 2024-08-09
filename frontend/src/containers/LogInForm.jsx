@@ -5,6 +5,7 @@ import { useAuthContext } from "../context";
 
 
 function LogInForm({ width, height }) {
+    const VITE_API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
     const [globalError, setGlobalError] = useState('');
     const navigate = useNavigate();
     const { dispatch } = useAuthContext();
@@ -20,7 +21,7 @@ function LogInForm({ width, height }) {
         };
 
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/auth/sign-in`, {
+            const response = await fetch(`${VITE_API_BASE_URL}/auth/sign-in`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

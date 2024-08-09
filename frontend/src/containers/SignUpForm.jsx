@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context";
 
 function SignUpForm({ width, height }) {
+    const VITE_API_BASE_URL = import.meta.env.VITE_API_BASE_URL || ""
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [passwordError, setPasswordError] = useState('');
@@ -40,7 +41,7 @@ function SignUpForm({ width, height }) {
         };
 
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/auth/sign-up`, {
+            const response = await fetch(`${VITE_API_BASE_URL}/auth/sign-up`, {
                 method: "POST",
                 credentials: "include",
                 headers: { "Content-Type": "application/json" },
