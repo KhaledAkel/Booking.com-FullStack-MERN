@@ -5,7 +5,7 @@ import { useAuthContext } from "../context";
 
 
 function LogInForm({ width, height }) {
-    const VITE_API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
+    const VITE_API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
     const [globalError, setGlobalError] = useState('');
     const navigate = useNavigate();
     const { dispatch } = useAuthContext();
