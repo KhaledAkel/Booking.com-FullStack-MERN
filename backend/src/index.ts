@@ -28,7 +28,7 @@ app.use(cookieParser());
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
-app.use('/auth', userRouter);
+app.use('/api/auth', userRouter);
 
 // Connect to database & start server
 const PORT =  5000;

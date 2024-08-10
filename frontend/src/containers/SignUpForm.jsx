@@ -41,7 +41,7 @@ function SignUpForm({ width, height }) {
         };
 
         try {
-            const response = await fetch(`${VITE_API_BASE_URL}/auth/sign-up`, {
+            const response = await fetch(`${VITE_API_BASE_URL}/api/auth/sign-up`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data),

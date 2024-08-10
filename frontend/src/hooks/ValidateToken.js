@@ -1,7 +1,7 @@
 export const validateToken = async () =>  {
     const VITE_API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
     try {
-        const response = await fetch(`${VITE_API_BASE_URL}/auth/validate-token`, {
+        const response = await fetch(`${VITE_API_BASE_URL}/api/auth/validate-token`, {
             credentials: "include",
             method: "GET",
             headers: {

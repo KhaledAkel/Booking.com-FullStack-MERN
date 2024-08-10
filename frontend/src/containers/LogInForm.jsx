@@ -21,7 +21,7 @@ function LogInForm({ width, height }) {
         };
 
         try {
-            const response = await fetch(`${VITE_API_BASE_URL}/auth/sign-in`, {
+            const response = await fetch(`${VITE_API_BASE_URL}/api/auth/sign-in`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
