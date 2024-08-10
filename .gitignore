@@ -10,3 +10,5 @@ dist/
 # Specific ignore rules (if needed)
 frontend/.env
 backend/.env
+
+.env.e2e
