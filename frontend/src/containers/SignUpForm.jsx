@@ -50,6 +50,7 @@ function SignUpForm({ width, height }) {
 
             if (response.ok) {
                 console.log("User created successfully");
+                dispatch({ type: "LOGIN" });
                 navigate('/');
             } else {
                 const responseData = await response.json();

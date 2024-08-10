@@ -59,7 +59,9 @@ export const signIn = async (req: Request, res: Response): Promise<void> => {
           const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET_KEY as string, { expiresIn: '1d' });
 
           // Setting the token as a cookie
-          res.cookie('auth_token', token, { httpOnly: true });
+          // Setting the token as a cookie
+         res.cookie('auth_token', token, { httpOnly: true, 
+            secure: true,  });
           res.status(201).json({ message: 'User created successfully' });
 
     } catch (error) {

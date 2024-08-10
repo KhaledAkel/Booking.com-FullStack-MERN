@@ -5,7 +5,7 @@ import { useAuthContext } from "../context";
 
 
 function LogInForm({ width, height }) {
-    const VITE_API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+    const VITE_API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
     const [globalError, setGlobalError] = useState('');
     const navigate = useNavigate();
     const { dispatch } = useAuthContext();
@@ -27,12 +27,12 @@ function LogInForm({ width, height }) {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(data),
+                credentials: 'include',
             });
 
             if (response.ok) {
                 console.log("User logged in successfully");
                 dispatch({ type: "LOGIN" });
-                localStorage.setItem("isAuthenticated", "true");
                 navigate('/');
             } else {
                 const responseData = await response.json();
