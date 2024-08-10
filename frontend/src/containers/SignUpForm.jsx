@@ -43,9 +43,9 @@ function SignUpForm({ width, height }) {
         try {
             const response = await fetch(`${VITE_API_BASE_URL}/auth/sign-up`, {
                 method: "POST",
-                credentials: "include",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data),
+                credentials: 'include',
             });
 
             if (response.ok) {
