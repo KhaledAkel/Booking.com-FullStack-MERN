@@ -26,8 +26,7 @@ export const signUp = async (req: Request, res: Response): Promise<void> => {
 
         // Setting the token as a cookie
         res.cookie('auth_token', token, { httpOnly: true, 
-            secure: true, 
-            sameSite: 'none' });
+            secure: true,  });
         res.status(201).json({ message: 'User created successfully' });
 
     } catch (error) {
