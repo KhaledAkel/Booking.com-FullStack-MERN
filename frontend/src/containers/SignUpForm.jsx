@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context";
 
 function SignUpForm({ width, height }) {
-    const VITE_API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+    const VITE_API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [passwordError, setPasswordError] = useState('');
