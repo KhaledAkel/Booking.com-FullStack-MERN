@@ -25,7 +25,7 @@ const verifyToken = (req: Request, res: Response, next: NextFunction): void => {
         // Verify the token
         const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY as string);
         // Attach the user information to req.user
-        req.userId = ( decoded as JwtPayload).userId;
+        req.userId = ( decoded as JwtPayload).userId as string;
         // Proceed to the next middleware or route handler
         next();
     } catch (error) {

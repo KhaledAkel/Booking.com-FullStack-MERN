@@ -26,6 +26,7 @@ export const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     const checkAuth = async () => {
       const isAuthenticated = await validateToken();
+      console.log(isAuthenticated);
  
       if (isAuthenticated) {
       

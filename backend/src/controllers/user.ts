@@ -62,7 +62,7 @@ export const signIn = async (req: Request, res: Response): Promise<void> => {
           // Setting the token as a cookie
          res.cookie('auth_token', token, { httpOnly: true, 
             secure: true,  });
-          res.status(201).json({ message: 'User created successfully' });
+          res.status(201).json({ message: 'User signed in successfully' });
 
     } catch (error) {
         const errorMessage = (error instanceof Error) ? error.message : 'Unknown error occurred';
