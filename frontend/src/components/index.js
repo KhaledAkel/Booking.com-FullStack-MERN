@@ -5,3 +5,6 @@ export { default as GoogleBtn } from './GoogleBtn';
 export { default as AdressForm } from './AdressForm';
 export { default as Input } from './Input';
 export { default as ImagesForm } from './ImagesForm';
+export { default as MenuItem } from './MenuItem';
+export { default as HotelCard } from './HotelCard';
+export { default as Rating } from './Rating';

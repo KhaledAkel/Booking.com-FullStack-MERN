@@ -1,1 +1,2 @@
-export { AuthContextProvider, useAuthContext } from './GlobalState.jsx'
+export { AuthContextProvider, useAuthContext } from './AuthState.jsx'
+export { HotelsContextProvider, useHotelsContext } from './hotelsState.jsx'

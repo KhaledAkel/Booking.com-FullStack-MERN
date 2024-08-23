@@ -69,3 +69,8 @@ export const signIn = async (req: Request, res: Response): Promise<void> => {
         res.status(500).json({ message: errorMessage });
     }
 }
+
+export const signOut = async (req: Request, res: Response): Promise<void> => {
+    res.clearCookie('auth_token');
+    res.status(200).json({ message: 'User signed out successfully' });
+}

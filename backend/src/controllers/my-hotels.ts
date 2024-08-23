@@ -36,3 +36,14 @@ export const createMyHotel = async (req: Request, res: Response) => {
         res.status(500).json({ message: 'Failed to create hotel'});
     }
 };
+
+export const viewMyHotels = async (req: Request, res: Response) => {
+    try {
+        const hotels = await Hotel.find({ userId: req.userId });
+        console.log('hotels: ', hotels);
+        res.status(200).json(hotels);
+    } catch (error: any) {
+        console.error('Failed to get hotels: ', error.message );
+        res.status(500).json({ message: 'Failed to get hotels'});
+    }
+}

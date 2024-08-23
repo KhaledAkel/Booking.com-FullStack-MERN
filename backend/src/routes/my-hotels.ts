@@ -1,6 +1,6 @@
 import express from 'express';
 import multer from 'multer';
-import {createMyHotel } from '../controllers';
+import {createMyHotel, viewMyHotels } from '../controllers';
 import { verifyToken } from '../middleware';
 
 const myHotelsRouter = express.Router();
@@ -13,6 +13,7 @@ const upload = multer({
  });
 
  myHotelsRouter.post('/create', verifyToken,  upload.array("images", 6), createMyHotel);
+ myHotelsRouter.get('/view', verifyToken, viewMyHotels);
 
 
 export default myHotelsRouter;

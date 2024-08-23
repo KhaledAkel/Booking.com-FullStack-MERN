@@ -1,5 +1,6 @@
 import React, { createContext, useReducer, useContext, useEffect } from 'react';
 import { validateToken } from '../hooks';
+import { useHotelsContext } from './hotelsState';
 
 // Create the AuthContext
 export const AuthContext = createContext();
@@ -21,23 +22,22 @@ export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, { 
     signedIn: false
   });
+  const { dispatch: hotelsDispatch } = useHotelsContext(); // Get the dispatch function from your hotels context
 
   // Use useEffect to handle side effects
   useEffect(() => {
     const checkAuth = async () => {
       const isAuthenticated = await validateToken();
-      console.log(isAuthenticated);
  
       if (isAuthenticated) {
       
         dispatch({ type: 'LOGIN' });
+
       }
     };
 
     checkAuth();
   }, [dispatch]); // Empty dependency array ensures this runs only once on mount
-
-    console.log(state);
   
   return (
     <AuthContext.Provider value={{ ...state, dispatch }}>

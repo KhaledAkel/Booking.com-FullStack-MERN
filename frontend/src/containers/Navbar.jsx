@@ -1,6 +1,9 @@
 import { SignBtn, Logo } from '../components';
 import { Link } from 'react-router-dom';
 import { useAuthContext } from '../context';
+import { Menu } from '../containers';
+
+
 
 const Navbar = () => {
   const { signedIn } = useAuthContext();
@@ -19,7 +22,7 @@ const Navbar = () => {
                               List Your Proberty</Link>  
             </div>
             {signedIn ?
-            <h1>Avatar</h1>
+                <Menu />
               :
             <SignBtn text="Sign up" to="/sign-up" />
             }

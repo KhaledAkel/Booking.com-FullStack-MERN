@@ -42,7 +42,7 @@ function AdressForm() {
         </div>
         <div className='flex flex-col'>
           <label htmlFor="price"> prices </label>
-          <input type="number" id="price" name="pricePerNight" min="1" max="5" className='border border-black' />
+          <input type="number" id="price" name="pricePerNight" min="1" max="30000" className='border border-black' />
           <label htmlFor="stars"> stars </label>
           <input type="number" id="stars" name="starRating" min="1" max="5" className='border border-black' />
         </div>
