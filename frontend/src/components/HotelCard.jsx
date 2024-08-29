@@ -5,12 +5,33 @@ import { IoChevronForwardSharp } from "react-icons/io5";
 import { CiTrash } from "react-icons/ci";
 import { FaPencilAlt } from "react-icons/fa";
 
+import { useHotelsContext } from '../context';
+const VITE_API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
+
 function HotelCard(props) {
-    const {image, name, adress, description, type, adults, children, facilities, pricePerNight, starRating, owner} = props
+    const { dispatch } = useHotelsContext();
+    const {id, image, name, country, city, description, type, adults, children, facilities, pricePerNight, starRating, owner} = props
     let facilitiesList = ''
     for (let i = 0; i < facilities.length; i++) {
         facilitiesList += '#' + facilities[i] + ' '
     }
+    const handleDelete = async (id) => {
+        try {
+            const response = await fetch(`${VITE_API_BASE_URL}/api/my-hotels/delete/${id}`, {
+                method: 'DELETE',
+                credentials: 'include',
+            });
+
+            if (response.ok) {
+                const hotelsData = response.json();
+                dispatch({ type: 'SET_HOTELS', payload: hotelsData });
+            } else {
+                console.error('Failed to delete the hotel');
+            }
+        } catch (error) {
+            console.error('Error deleting the hotel:', error);
+        }
+    };
   return (
     <div className='w-full h-[300px] max-md:h-[500px] rounded-xl p-3 flex max-md:flex-col shadow-sm border-gray-300 border'>
         <div className='w-[30%] max-md:w-full h-full max-md:h-[50%]'>
@@ -20,7 +41,7 @@ function HotelCard(props) {
             <div className='h-full flex flex-col content-between'>
                 <div className='h-1/2'>
                     <h1 className='text-xl text-primary font-semibold'>{name}</h1>
-                    <p className='text-sm text-gray-600'>{adress}</p>
+                    <p className='text-sm text-gray-600 font-semibold'>{`${country} : ${city? city : ""}`}</p>
                     <p className='text-[0.7rem] text-gray-600 mt-3 overflow-clip'>{description}</p>
                 </div>
                 <div className='h-1/2 flex '>
@@ -43,14 +64,13 @@ function HotelCard(props) {
                         </Link>
                         :
                         <div className='flex items-center gap-x-4 '>
-                            <CiTrash className='text-red-500 text-4xl p-1 cursor-pointer hover:bg-red-500 hover:text-white rounded-full duration-200' />
+                            <CiTrash className='text-red-500 text-4xl p-1 cursor-pointer hover:bg-red-500 hover:text-white rounded-full duration-200' onClick={() => handleDelete(id)}/>
                             <Link to='/hotel-edit' className='flex items-center justify-center bg-primary p-2 rounded-xl hover:bg-tertiary duration-200 gap-x-2'>
                                 <p className='text-white font-bold text-lg'>Edit</p>
                                 <FaPencilAlt className='text-white text-lg'/>
                             </Link>
 
-                        </div>}
-                        
+                        </div>}   
                 </div>
             </div> 
         </div> 

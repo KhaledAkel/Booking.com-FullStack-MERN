@@ -12,9 +12,8 @@ const Navbar = () => {
         <Logo />
         <div className='flex items-center justify-center gap-x-11'>
             <div className='flex max-lg:hidden items-center font-medium text-sm gap-x-5'>
-                <Link to='/login' className='hover:text-tertiary'>Home</Link>
-                <Link to='/login' className='hover:text-tertiary'>About</Link>
-                <Link to='/login' className='hover:text-tertiary'>Sprcial Offers</Link>
+                <a href='#trending' className='hover:text-tertiary'>Trending</a>
+                <a href='#special-offers' className='hover:text-tertiary'>Special Offers</a>
                 <Link to='/add-hotel' className='text-md font-bold p-2 text-white
                               flex items-center justify-center rounded
                               bg-primary hover:bg-tertiary duration-300

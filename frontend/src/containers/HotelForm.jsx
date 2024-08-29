@@ -1,5 +1,6 @@
 import React from 'react'
 import { AdressForm, ImagesForm } from '../components'
+import { IoMdArrowRoundForward } from "react-icons/io";
 import { useNavigate } from 'react-router-dom'; // Assuming you're using react-router
 
 const VITE_API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
@@ -11,6 +12,10 @@ function HotelForm() {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
+    // male formdata as a json object
+    const formObject = {};
+    formData.forEach((value, key) => formObject[key] = value);
+    console.log(formObject);
 
 
     try {
@@ -37,7 +42,9 @@ function HotelForm() {
         <form action="" className='w-full flex gap-x-9' onSubmit={handleSubmit} encType="multipart/form-data">    
             <AdressForm />
             <ImagesForm />
-            <button type='submit'>Done</button>
+            <button type='submit'>
+                <IoMdArrowRoundForward className='text-5xl text-primary'/>
+            </button>
         </form>
     </div>
   )

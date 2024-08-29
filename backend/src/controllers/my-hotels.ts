@@ -5,10 +5,8 @@ import { HotelType, Hotel } from '../models';
 
 export const createMyHotel = async (req: Request, res: Response) => {
     try {
-        console.log('req.files: ', req.files);
         const imageFiles = req.files as Express.Multer.File[];
         const newHotel : HotelType = req.body;
-        console.log('newHotel: ', newHotel);
         // Upload the images to Cloudinary
         const uploadPromises = imageFiles.map(async (image) => {
             const b64 = image.buffer.toString('base64');
@@ -40,10 +38,22 @@ export const createMyHotel = async (req: Request, res: Response) => {
 export const viewMyHotels = async (req: Request, res: Response) => {
     try {
         const hotels = await Hotel.find({ userId: req.userId });
-        console.log('hotels: ', hotels);
         res.status(200).json(hotels);
     } catch (error: any) {
         console.error('Failed to get hotels: ', error.message );
         res.status(500).json({ message: 'Failed to get hotels'});
+    }
+}
+
+export const deleteMyHotel = async (req: Request, res: Response) => {
+    try {
+        const hotelId = req.params.id;
+        await Hotel.deleteOne({ _id: hotelId, userId: req.userId });
+        const hotels = await Hotel.find({ userId: req.userId });
+        res.status(200).json(hotels);
+    }
+    catch (error: any) {
+        console.error('Failed to delete hotel: ', error.message );
+        res.status(500).json({ message: 'Failed to delete hotel'});
     }
 }

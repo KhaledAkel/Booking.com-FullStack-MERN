@@ -5,7 +5,7 @@ import cookieParser from 'cookie-parser';
 import {v2 as cloudinary} from 'cloudinary';
 import "dotenv/config";
 
-import { userRouter, myHotelsRouter} from './routes';
+import { userRouter, myHotelsRouter, hotelsRouter} from './routes';
 import path from 'path';
 
 cloudinary.config({
@@ -40,6 +40,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth', userRouter);
 app.use('/api/my-hotels', myHotelsRouter);
+app.use('/api/hotels', hotelsRouter);
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../../frontend/dist/index.html'));
