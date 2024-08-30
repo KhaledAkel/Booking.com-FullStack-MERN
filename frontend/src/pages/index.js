@@ -3,3 +3,4 @@ export { default as SignUp } from './SignUp';
 export { default as LogIn } from './LogIn';
 export { default as AddHotel } from './AddHotel';
 export { default as MyHotels } from './MyHotels';
+export { default as Search } from './Search';

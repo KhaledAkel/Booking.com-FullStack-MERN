@@ -4,7 +4,7 @@ import {Hotel} from '../models'
 const getAllHotels = async (req: Request, res: Response) => {
     try {
         const hotels = await Hotel.find({});
-        console.log("ALL Hotels", hotels);
+       
         res.status(200).json(hotels);
     } catch (error) {
         res.status(500).json({ message: 'Failed to get hotels' });

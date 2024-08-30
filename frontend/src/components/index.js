@@ -9,3 +9,4 @@ export { default as MenuItem } from './MenuItem';
 export { default as HotelCard } from './HotelCard';
 export { default as Rating } from './Rating';
 export { default as Card } from './Card';
+export { default as Checkbox } from './Checkbox';

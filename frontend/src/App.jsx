@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { Home, SignUp, LogIn, AddHotel, MyHotels } from './pages';
+import { Home, SignUp, LogIn, AddHotel, MyHotels, Search } from './pages';
 import { useAuthContext } from './context';
 
 const App = () => {
@@ -18,6 +18,7 @@ const App = () => {
         <Route path="/sign-in" element={<LogIn />} />
         <Route path="/add-hotel" element={<ProtectedRoute element={<AddHotel />} />} />
         <Route path="/my-hotels" element={<MyHotels />} />
+        <Route path="/search" element={<Search />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
